@@ -113,7 +113,75 @@ input {
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid var(--border);
+
 }
+
+/* MEMBERSHIP SECTION */
+.membership-wrapper {
+    background-color: #f3e3cf;
+    padding: 120px 80px;
+    text-align: center;
+}
+
+.membership-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.membership-subtitle {
+    font-size: 14px;
+    margin-bottom: 60px;
+    color: #555;
+}
+
+.membership-cards {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.membership-card {
+    background-color: #f9efe1;
+    width: 300px;
+    padding: 40px 30px;
+    border-radius: 6px;
+}
+
+.membership-card h4 {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.membership-card h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.membership-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.membership-card hr {
+    border: none;
+    border-top: 1px solid #c9b9a6;
+    margin: 15px 0;
+}
+
+.membership-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 10px 30px;
+    border: 1px solid #c9a27e;
+    color: #c9a27e;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
 
 /* FOOTER */
 footer {

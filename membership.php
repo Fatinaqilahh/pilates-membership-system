@@ -4,16 +4,17 @@ $plans = mysqli_query($conn, "SELECT * FROM membership_plans");
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Membership Plans | LINE Pilates</title>
+    <meta charset="UTF-8">
+    <title>Membership Packages | MyPILATES</title>
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <strong>LINE</strong>
+    <strong>MyPILATES</strong>
     <div>
         <a href="index.php">HOME</a>
         <a href="index.php#classes">CLASSES</a>
@@ -22,29 +23,42 @@ $plans = mysqli_query($conn, "SELECT * FROM membership_plans");
     </div>
 </div>
 
-<!-- MEMBERSHIP SECTION -->
-<div class="section">
-    <h2>Membership Plans</h2>
-    <p>Choose a plan that fits your Pilates journey</p>
+<!-- MEMBERSHIP PACKAGES -->
+<div class="membership-wrapper">
+    <h2 class="membership-title">Membership Packages</h2>
+    <p class="membership-subtitle">
+        We offer flexible options so you can enjoy Pilates with better value.
+    </p>
 
-    <?php while ($plan = mysqli_fetch_assoc($plans)) { ?>
-        <div class="card">
-            <h3><?php echo $plan['plan_name']; ?></h3>
-            <p><?php echo $plan['description']; ?></p>
-            <p>
-                <strong>
-                    RM <?php echo $plan['price']; ?> /
-                    <?php echo $plan['duration_months']; ?> month(s)
-                </strong>
-            </p>
+    <div class="membership-cards">
+        <?php while ($plan = mysqli_fetch_assoc($plans)) { ?>
+            <div class="membership-card">
+                <h4><?php echo $plan['plan_name']; ?></h4>
 
-            <a href="signup.php" class="btn">Join Now</a>
-        </div>
-    <?php } ?>
+                <h1>RM <?php echo $plan['price']; ?></h1>
+
+                <p><?php echo $plan['description']; ?></p>
+                <hr>
+
+                <p>
+                    Valid for <?php echo $plan['duration_months']; ?> month(s)
+                    from the date of purchase.
+                </p>
+                <hr>
+
+                <p>
+                    Membership access included.
+                </p>
+
+                <a href="signup.php" class="membership-btn">JOIN NOW</a>
+            </div>
+        <?php } ?>
+    </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-    © 2025 LINE Pilates Membership System
+    © 2025 MyPILATES Membership System
 </footer>
 
 </body>
