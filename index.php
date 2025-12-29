@@ -28,52 +28,108 @@
             AND FOR EXPERTS.
         </h1>
         <p>
-            MyPilates is the largest Pilates centre that provides classes for beginners
-            and professionals. From the basics to advanced practice, we guide your
-            Pilates journey with mindful movement and excellence.
+            MyPilates is a contemporary Pilates studio offering classes for beginners
+            and experienced practitioners. We guide your movement journey with
+            precision, strength, and mindful control.
         </p>
-        <a href="signup.php" class="btn">ABOUT LINE</a>
+        <a href="signup.php" class="btn">ABOUT MYPILATES</a>
     </div>
 </section>
 
-<!-- ABOUT / INTRO SECTION -->
+<!-- ABOUT SECTION -->
 <section class="section">
     <h2>We Help You Move With Strength & Control</h2>
     <p>
-        Our Pilates studio offers a calm and welcoming environment designed to help
-        you strengthen, lengthen, and reconnect with your body through mindful movement.
-        Whether you are new to Pilates or an experienced practitioner, MyPilates supports
-        every stage of your journey.
+        Our Pilates studio provides a calm and supportive environment designed to help
+        you strengthen, lengthen, and reconnect with your body. Whether you are new
+        to Pilates or advancing your practice, MyPilates supports every stage
+        of your movement journey.
     </p>
 </section>
 
-<!-- CLASS OFFERINGS -->
-<section class="section" id="classes">
-    <h2>Class Offerings</h2>
-    <p>Reformer Pilates • Mat Pilates • All Levels</p>
+<!-- REFORMER PILATES FEATURE -->
+<section class="reformer-section" id="classes">
+    <div class="reformer-container">
 
-    <div class="card">
-        <h3>Reformer Pilates</h3>
-        <p>Strengthen, lengthen, and tone your body using classic reformer equipment.</p>
-        <a href="signup.php" class="btn">Book a Class</a>
-    </div>
+        <div class="reformer-image">
+            <img src="assets/images/reformer_pilates.jpg" alt="Reformer Pilates Class">
+        </div>
 
-    <div class="card">
-        <h3>Mat Pilates</h3>
-        <p>Improve flexibility, posture, and core stability through controlled movements.</p>
-        <a href="signup.php" class="btn">Book a Class</a>
-    </div>
+        <div class="reformer-content">
+            <h2>Reformer Pilates</h2>
+            <p>
+                Strengthen, lengthen, and tone your body using classic Reformer
+                equipment. Suitable for all levels, from beginners to advanced
+                practitioners seeking controlled and effective movement.
+            </p>
+            <a href="membership.php" class="btn">VIEW PACKAGES</a>
+        </div>
 
-    <div class="card">
-        <h3>Advanced Pilates</h3>
-        <p>Designed for experienced practitioners seeking strength, balance, and precision.</p>
-        <a href="signup.php" class="btn">Book a Class</a>
     </div>
 </section>
 
+<!-- CONTEMPORARY PILATES FEATURE -->
+<section class="reformer-section">
+    <div class="reformer-container reverse">
+
+        <!-- TEXT (LEFT) -->
+        <div class="reformer-content">
+            <h2>Contemporary Pilates</h2>
+            <p>
+                Contemporary Pilates blends classical principles with modern movement
+                techniques. This class focuses on functional strength, flexibility,
+                and body awareness, suitable for all levels.
+            </p>
+            <a href="membership.php" class="btn">VIEW PACKAGES</a>
+        </div>
+
+        <!-- IMAGE (RIGHT) -->
+        <div class="reformer-image">
+            <img src="assets/images/contemporary_pilates.jpg" alt="Contemporary Pilates Class">
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- OTHER CLASSES -->
+<section class="section">
+    <h2>Other Class Offerings</h2>
+    <p>Mat Pilates • Advanced Pilates • All Levels</p>
+
+    <div class="class-grid">
+
+        <!-- MAT PILATES -->
+        <div class="class-card">
+            <img src="assets/images/mat_class.jpg" alt="Mat Pilates Class">
+            <h3>Mat Pilates</h3>
+            <p>
+                Improve flexibility, posture, and core stability through controlled
+                floor-based movements.
+            </p>
+            <a href="signup.php" class="btn">BOOK A CLASS</a>
+        </div>
+
+        <!-- ADVANCED PILATES -->
+        <div class="class-card">
+            <img src="assets/images/advanced_pilates.jpg" alt="Advanced Pilates Class">
+            <h3>Advanced Pilates</h3>
+            <p>
+                Designed for experienced practitioners focusing on precision,
+                strength, and balance.
+            </p>
+            <a href="signup.php" class="btn">BOOK A CLASS</a>
+        </div>
+
+    </div>
+</section>
+
+
+
 <!-- CALL TO ACTION -->
 <section class="section">
-    <h2>Begin Your Pilates Journey With LINE</h2>
+    <h2>Begin Your Pilates Journey With MyPilates</h2>
     <p>
         Sign up today to book classes, manage your schedule, and enjoy exclusive
         member benefits through our Pilates Membership System.
@@ -83,7 +139,7 @@
 
 <!-- FOOTER -->
 <footer>
-    © 2025 Pilates Membership System | LINE Pilates
+    © 2025 MyPilates Membership System
 </footer>
 
 </body>
