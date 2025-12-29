@@ -42,7 +42,7 @@
     <p>
         Our Pilates studio offers a calm and welcoming environment designed to help
         you strengthen, lengthen, and reconnect with your body through mindful movement.
-        Whether you are new to Pilates or an experienced practitioner, LINE supports
+        Whether you are new to Pilates or an experienced practitioner, MyPilates supports
         every stage of your journey.
     </p>
 </section>
