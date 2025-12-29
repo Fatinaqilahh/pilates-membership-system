@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* THEME */
+:root {
+    --bg: #f6f2e9;
+    --dark: #3a3a3a;
+    --accent: #e3b08c;
+    --white: #ffffff;
+    --border: #d8d2c4;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--dark);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 80px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.navbar a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+/* HERO */
+.hero {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 52px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 36px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+/* SECTION */
+.section {
+    padding: 100px 80px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+/* CARD */
+.card {
+    background: var(--white);
+    padding: 30px;
+    border: 1px solid var(--border);
+    margin: 20px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+table th, table td {
+    padding: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* FORM */
+form {
+    max-width: 400px;
+    margin: 100px auto;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
