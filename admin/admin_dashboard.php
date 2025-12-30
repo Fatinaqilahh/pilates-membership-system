@@ -1,3 +1,11 @@
+<?php
+session_start();
+include("../config/db.php");
+
+/* Fetch all classes */
+$classes = mysqli_query($conn, "SELECT * FROM pilates_classes");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,37 +36,33 @@
 <section class="section">
     <div class="class-grid">
 
-        <!-- REFORMER PILATES -->
-        <div class="class-card">
-            <img src="../assets/images/reformer_pilates.jpg" alt="Reformer Pilates">
-            <h3>Reformer Pilates</h3>
-            <p>Strengthen, lengthen, and tone using reformer equipment.</p>
-            <a href="#" class="btn">EDIT</a>
-        </div>
+        <?php while ($row = mysqli_fetch_assoc($classes)) { ?>
+            <div class="class-card">
 
-        <!-- CONTEMPORARY PILATES -->
-        <div class="class-card">
-            <img src="../assets/images/contemporary_pilates.jpg" alt="Contemporary Pilates">
-            <h3>Contemporary Pilates</h3>
-            <p>Modern Pilates focusing on functional strength and mobility.</p>
-            <a href="#" class="btn">EDIT</a>
-        </div>
+                <img src="../assets/images/<?php echo $row['image']; ?>" alt="<?php echo $row['class_name']; ?>">
 
-        <!-- MAT PILATES -->
-        <div class="class-card">
-            <img src="../assets/images/mat_class.jpg" alt="Mat Pilates">
-            <h3>Mat Pilates</h3>
-            <p>Core-focused floor-based Pilates class.</p>
-            <a href="#" class="btn">EDIT</a>
-        </div>
+                <h3><?php echo $row['class_name']; ?></h3>
 
-        <!-- ADVANCED PILATES -->
-        <div class="class-card">
-            <img src="../assets/images/advanced_pilates.jpg" alt="Advanced Pilates">
-            <h3>Advanced Pilates</h3>
-            <p>High-level Pilates focusing on strength and precision.</p>
-            <a href="#" class="btn">EDIT</a>
-        </div>
+                <p><?php echo $row['description']; ?></p>
+
+                <!-- EDIT BUTTON -->
+                <a href="edit_class.php?id=<?php echo $row['id']; ?>" class="btn">
+                    EDIT
+                </a>
+
+                <!-- ENABLE / DISABLE -->
+                <?php if ($row['status'] == 'active') { ?>
+                    <a href="toggle_class.php?id=<?php echo $row['id']; ?>&status=inactive" class="btn">
+                        DISABLE
+                    </a>
+                <?php } else { ?>
+                    <a href="toggle_class.php?id=<?php echo $row['id']; ?>&status=active" class="btn">
+                        ENABLE
+                    </a>
+                <?php } ?>
+
+            </div>
+        <?php } ?>
 
     </div>
 </section>

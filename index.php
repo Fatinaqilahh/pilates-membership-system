@@ -1,3 +1,12 @@
+<?php
+include("config/db.php");
+
+$classes = mysqli_query($conn, "
+    SELECT * FROM pilates_classes 
+    WHERE status='active'
+");
+$featured = mysqli_fetch_all($classes, MYSQLI_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,132 +23,123 @@
         <a href="#">STUDIO</a>
         <a href="membership.php">MEMBERSHIP</a>
         <a href="#classes">CLASSES</a>
-        <a href="#">CONTACT US</a>
+        <a href="#contact">CONTACT US</a>
         <a href="login.php">LOG IN</a>
         <a href="admin/admin_login.php">ADMIN</a>
     </div>
 </div>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
     <div>
-        <h1>
-            PILATES FOR ALL,<br>
-            AND FOR EXPERTS.
-        </h1>
+        <h1>PILATES FOR ALL,<br>AND FOR EXPERTS.</h1>
         <p>
-            MyPilates is a contemporary Pilates studio offering classes for beginners
-            and experienced practitioners. We guide your movement journey with
-            precision, strength, and mindful control.
+            MyPilates is a contemporary Pilates studio offering classes
+            for beginners and experienced practitioners.
         </p>
         <a href="signup.php" class="btn">ABOUT MYPILATES</a>
     </div>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section class="section">
     <h2>We Help You Move With Strength & Control</h2>
     <p>
-        Our Pilates studio provides a calm and supportive environment designed to help
-        you strengthen, lengthen, and reconnect with your body. Whether you are new
-        to Pilates or advancing your practice, MyPilates supports every stage
-        of your movement journey.
+        Our studio provides a calm and supportive environment designed
+        to help you strengthen, lengthen, and reconnect with your body.
     </p>
 </section>
 
-<!-- REFORMER PILATES FEATURE -->
+<!-- FEATURED CLASSES -->
+<?php if (!empty($featured[0])) { ?>
 <section class="reformer-section" id="classes">
     <div class="reformer-container">
-
         <div class="reformer-image">
-            <img src="assets/images/reformer_pilates.jpg" alt="Reformer Pilates Class">
+            <img src="assets/images/<?php echo $featured[0]['image']; ?>">
         </div>
-
         <div class="reformer-content">
-            <h2>Reformer Pilates</h2>
-            <p>
-                Strengthen, lengthen, and tone your body using classic Reformer
-                equipment. Suitable for all levels, from beginners to advanced
-                practitioners seeking controlled and effective movement.
-            </p>
+            <h2><?php echo $featured[0]['class_name']; ?></h2>
+            <p><?php echo $featured[0]['description']; ?></p>
             <a href="membership.php" class="btn">VIEW PACKAGES</a>
         </div>
-
     </div>
 </section>
+<?php } ?>
 
-<!-- CONTEMPORARY PILATES FEATURE -->
+<?php if (!empty($featured[1])) { ?>
 <section class="reformer-section">
     <div class="reformer-container reverse">
-
-        <!-- TEXT (LEFT) -->
         <div class="reformer-content">
-            <h2>Contemporary Pilates</h2>
-            <p>
-                Contemporary Pilates blends classical principles with modern movement
-                techniques. This class focuses on functional strength, flexibility,
-                and body awareness, suitable for all levels.
-            </p>
+            <h2><?php echo $featured[1]['class_name']; ?></h2>
+            <p><?php echo $featured[1]['description']; ?></p>
             <a href="membership.php" class="btn">VIEW PACKAGES</a>
         </div>
-
-        <!-- IMAGE (RIGHT) -->
         <div class="reformer-image">
-            <img src="assets/images/contemporary_pilates.jpg" alt="Contemporary Pilates Class">
+            <img src="assets/images/<?php echo $featured[1]['image']; ?>">
         </div>
-
     </div>
 </section>
-
-
+<?php } ?>
 
 <!-- OTHER CLASSES -->
 <section class="section">
     <h2>Other Class Offerings</h2>
-    <p>Mat Pilates • Advanced Pilates • All Levels</p>
 
     <div class="class-grid">
-
-        <!-- MAT PILATES -->
-        <div class="class-card">
-            <img src="assets/images/mat_class.jpg" alt="Mat Pilates Class">
-            <h3>Mat Pilates</h3>
-            <p>
-                Improve flexibility, posture, and core stability through controlled
-                floor-based movements.
-            </p>
-            <a href="signup.php" class="btn">BOOK A CLASS</a>
-        </div>
-
-        <!-- ADVANCED PILATES -->
-        <div class="class-card">
-            <img src="assets/images/advanced_pilates.jpg" alt="Advanced Pilates Class">
-            <h3>Advanced Pilates</h3>
-            <p>
-                Designed for experienced practitioners focusing on precision,
-                strength, and balance.
-            </p>
-            <a href="signup.php" class="btn">BOOK A CLASS</a>
-        </div>
-
+        <?php for ($i = 2; $i < count($featured); $i++) { ?>
+            <div class="class-card">
+                <img src="assets/images/<?php echo $featured[$i]['image']; ?>">
+                <h3><?php echo $featured[$i]['class_name']; ?></h3>
+                <p><?php echo $featured[$i]['description']; ?></p>
+                <a href="signup.php" class="btn">BOOK A CLASS</a>
+            </div>
+        <?php } ?>
     </div>
 </section>
 
-
-
-<!-- CALL TO ACTION -->
-<section class="section">
-    <h2>Begin Your Pilates Journey With MyPilates</h2>
-    <p>
-        Sign up today to book classes, manage your schedule, and enjoy exclusive
-        member benefits through our Pilates Membership System.
-    </p>
-    <a href="signup.php" class="btn">SIGN UP</a>
-</section>
-
 <!-- FOOTER -->
-<footer>
-    © 2025 MyPilates Membership System
+<footer id="contact" class="footer">
+    <div class="footer-wrapper">
+
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>
+                MyPilates Sdn Bhd<br>
+                Level 2, Wellness Centre<br>
+                Kuala Lumpur, Malaysia
+            </p>
+            <p>
+                T: +60 12-345 6789<br>
+                E: info@mypilates.com
+            </p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Timetable + Hours</h4>
+            <p class="footer-link">Class Schedule</p>
+            <p>Mon – Fri: 08:00 – 22:00</p>
+            <p>Sat – Sun: 09:00 – 18:00</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>About</h4>
+            <p class="footer-link">Terms of Use</p>
+            <p class="footer-link">FAQ</p>
+            <p class="footer-link">Feedback</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Follow</h4>
+            <p class="footer-link">Facebook</p>
+            <p class="footer-link">Instagram</p>
+            <p class="footer-link">TikTok</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2025 MyPilates Membership System
+    </div>
 </footer>
 
 </body>

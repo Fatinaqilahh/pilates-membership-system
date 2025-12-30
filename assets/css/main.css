@@ -1,3 +1,6 @@
+/* =========================
+   RESET & THEME
+   ========================= */
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +8,6 @@
     font-family: "Helvetica Neue", Arial, sans-serif;
 }
 
-/* THEME */
 :root {
     --bg: #f6f2e9;
     --dark: #3a3a3a;
@@ -19,7 +21,9 @@ body {
     color: var(--dark);
 }
 
-/* NAVBAR */
+/* =========================
+   NAVBAR
+   ========================= */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -34,7 +38,9 @@ body {
     color: var(--dark);
 }
 
-/* HERO */
+/* =========================
+   HERO
+   ========================= */
 .hero {
     height: 85vh;
     background:
@@ -45,8 +51,6 @@ body {
     align-items: center;
     text-align: center;
 }
-
-
 
 .hero h1 {
     font-size: 52px;
@@ -60,7 +64,9 @@ body {
     line-height: 1.8;
 }
 
-/* BUTTON */
+/* =========================
+   BUTTON
+   ========================= */
 .btn {
     display: inline-block;
     margin-top: 30px;
@@ -71,7 +77,9 @@ body {
     letter-spacing: 1px;
 }
 
-/* SECTION */
+/* =========================
+   SECTION
+   ========================= */
 .section {
     padding: 100px 80px;
     text-align: center;
@@ -82,64 +90,32 @@ body {
     margin-bottom: 20px;
 }
 
-/* CARD */
-.card {
-    background: var(--white);
-    padding: 30px;
-    border: 1px solid var(--border);
-    margin: 20px;
-}
-
-/* TABLE */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 30px;
-}
-
-table th, table td {
-    padding: 15px;
-    border-bottom: 1px solid var(--border);
-}
-
-/* FORM */
-form {
-    max-width: 400px;
-    margin: 100px auto;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid var(--border);
-
-}
-
 /* =========================
-   REFORMER PILATES SECTION
+   FEATURED CLASS
    ========================= */
-
 .reformer-section {
     padding: 120px 80px;
-    background-color: var(--bg);
 }
 
 .reformer-container {
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 80px;
     flex-wrap: wrap;
 }
 
+.reformer-container.reverse {
+    flex-direction: row-reverse;
+}
+
 .reformer-image img {
-    width: 480px;
+    width: 500px;
     max-width: 100%;
-    border-radius: 12px;
+    border-radius: 14px;
 }
 
 .reformer-content {
-    max-width: 500px;
+    max-width: 520px;
 }
 
 .reformer-content h2 {
@@ -149,13 +125,13 @@ input {
 
 .reformer-content p {
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.9;
     margin-bottom: 30px;
 }
-/* =========================
-   CLASS IMAGE CARDS
-   ========================= */
 
+/* =========================
+   CLASS GRID
+   ========================= */
 .class-grid {
     display: flex;
     justify-content: center;
@@ -191,11 +167,11 @@ input {
 
 .class-card .btn {
     margin: 0 20px 30px;
-    display: inline-block;
 }
 
-
-/* MEMBERSHIP SECTION */
+/* =========================
+   MEMBERSHIP
+   ========================= */
 .membership-wrapper {
     background-color: #f3e3cf;
     padding: 120px 80px;
@@ -209,67 +185,140 @@ input {
 
 .membership-subtitle {
     font-size: 14px;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
     color: #555;
 }
 
 .membership-cards {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 50px;
     flex-wrap: wrap;
 }
 
 .membership-card {
     background-color: #f9efe1;
     width: 300px;
-    padding: 40px 30px;
+    padding: 45px 30px;
     border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+.membership-card:hover {
+    transform: translateY(-8px);
 }
 
 .membership-card h4 {
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
 .membership-card h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 38px;
+    margin-bottom: 25px;
 }
 
 .membership-card p {
     font-size: 13px;
-    line-height: 1.8;
-    margin: 15px 0;
+    line-height: 1.9;
 }
 
 .membership-card hr {
     border: none;
     border-top: 1px solid #c9b9a6;
-    margin: 15px 0;
+    margin: 20px 0;
 }
 
 .membership-btn {
     display: inline-block;
     margin-top: 30px;
     padding: 10px 30px;
-    border: 1px solid #c9a27e;
-    color: #c9a27e;
+    border: 1px solid var(--accent);
+    color: var(--accent);
     text-decoration: none;
     font-size: 12px;
     letter-spacing: 1px;
 }
 
-
-/* FOOTER */
-footer {
-    background: #222;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+/* =========================
+   FORM (LOGIN / SIGNUP)
+   ========================= */
+form {
+    max-width: 420px;
+    margin: 120px auto;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
 }
-/* REVERSE LAYOUT (IMAGE RIGHT, TEXT LEFT) */
-.reformer-container.reverse {
-    flex-direction: row-reverse;
+
+form h2 {
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.footer {
+    background-color: #cfd9c2;
+    padding: 100px 80px 40px;
+    color: #2f2f2f;
+}
+
+.footer-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 80px;
+}
+
+.footer-col h4 {
+    font-size: 14px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-col p {
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.footer-link {
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 13px;
+    color: #444;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+    .footer-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-wrapper {
+        grid-template-columns: 1fr;
+    }
 }
