@@ -1,10 +1,7 @@
 <?php
 include("config/db.php");
 
-$classes = mysqli_query($conn, "
-    SELECT * FROM pilates_classes 
-    WHERE status='active'
-");
+$classes = mysqli_query($conn, "SELECT * FROM class");
 $featured = mysqli_fetch_all($classes, MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -37,63 +34,24 @@ $featured = mysqli_fetch_all($classes, MYSQLI_ASSOC);
             MyPilates is a contemporary Pilates studio offering classes
             for beginners and experienced practitioners.
         </p>
-        <a href="signup.php" class="btn">ABOUT MYPILATES</a>
+        <a href="#classes" class="btn">VIEW CLASSES</a>
     </div>
 </section>
 
-<!-- ABOUT -->
-<section class="section">
-    <h2>We Help You Move With Strength & Control</h2>
-    <p>
-        Our studio provides a calm and supportive environment designed
-        to help you strengthen, lengthen, and reconnect with your body.
-    </p>
-</section>
-
-<!-- FEATURED CLASSES -->
-<?php if (!empty($featured[0])) { ?>
-<section class="reformer-section" id="classes">
-    <div class="reformer-container">
-        <div class="reformer-image">
-            <img src="assets/images/<?php echo $featured[0]['image']; ?>">
-        </div>
-        <div class="reformer-content">
-            <h2><?php echo $featured[0]['class_name']; ?></h2>
-            <p><?php echo $featured[0]['description']; ?></p>
-            <a href="membership.php" class="btn">VIEW PACKAGES</a>
-        </div>
-    </div>
-</section>
-<?php } ?>
-
-<?php if (!empty($featured[1])) { ?>
-<section class="reformer-section">
-    <div class="reformer-container reverse">
-        <div class="reformer-content">
-            <h2><?php echo $featured[1]['class_name']; ?></h2>
-            <p><?php echo $featured[1]['description']; ?></p>
-            <a href="membership.php" class="btn">VIEW PACKAGES</a>
-        </div>
-        <div class="reformer-image">
-            <img src="assets/images/<?php echo $featured[1]['image']; ?>">
-        </div>
-    </div>
-</section>
-<?php } ?>
-
-<!-- OTHER CLASSES -->
-<section class="section">
-    <h2>Other Class Offerings</h2>
+<!-- OUR CLASSES -->
+<section class="section" id="classes">
+    <h2>Our Classes</h2>
 
     <div class="class-grid">
-        <?php for ($i = 2; $i < count($featured); $i++) { ?>
+        <?php foreach ($featured as $class): ?>
             <div class="class-card">
-                <img src="assets/images/<?php echo $featured[$i]['image']; ?>">
-                <h3><?php echo $featured[$i]['class_name']; ?></h3>
-                <p><?php echo $featured[$i]['description']; ?></p>
-                <a href="signup.php" class="btn">BOOK A CLASS</a>
+                <img src="assets/images/<?php echo htmlspecialchars($class['image']); ?>" 
+                     alt="<?php echo htmlspecialchars($class['class_name']); ?>">
+                <h3><?php echo htmlspecialchars($class['class_name']); ?></h3>
+                <p><?php echo htmlspecialchars($class['class_schedule']); ?></p>
+                <a href="membership.php" class="btn">VIEW PACKAGES</a>
             </div>
-        <?php } ?>
+        <?php endforeach; ?>
     </div>
 </section>
 
@@ -116,7 +74,6 @@ $featured = mysqli_fetch_all($classes, MYSQLI_ASSOC);
 
         <div class="footer-col">
             <h4>Timetable + Hours</h4>
-            <p class="footer-link">Class Schedule</p>
             <p>Mon – Fri: 08:00 – 22:00</p>
             <p>Sat – Sun: 09:00 – 18:00</p>
         </div>
